@@ -4,6 +4,8 @@ public class EliLinkedList implements EliList {
 
 
     private Link head;
+
+
     public EliLinkedList(){
         head = null;
     }
@@ -22,7 +24,27 @@ public class EliLinkedList implements EliList {
 
     @Override
     public void remove(int index) {
+        //initial state
+        Link previous = null;
+        Link temp = head;
+        int counter = 0;
+        boolean removed = false;
+        while(temp != null && !removed){
+            //if counter == index, then temp is the item removed
+            if(counter == index){
+                if(previous == null){
+                    head = temp.getNext();
+                }else{
+                    previous.setNext(temp.getNext());
+                }
+                removed = true;
+            }
 
+            //update
+            previous = temp;
+            temp = temp.getNext();
+            counter++;
+        }
     }
 
     @Override
