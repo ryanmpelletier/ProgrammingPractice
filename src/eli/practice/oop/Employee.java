@@ -1,10 +1,24 @@
 package eli.practice.oop;
 
-public class Employee {
+public abstract class Employee {
 
-    String firstName;
-    String lastName;
+    private String firstName;
+    private String lastName;
 
     //needs constructor, getters, and setters
+    public Employee(String firstName,String lastName){
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    public abstract double getWeeklyCost();
+
+
+    public String getFirstName(){
+        return this.firstName;
+    }
+    public String getLastName(){
+        return this.lastName;
+    }
 
 }

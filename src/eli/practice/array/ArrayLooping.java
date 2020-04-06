@@ -21,26 +21,40 @@ public class ArrayLooping {
         TODO: Eli, write the actual code in the following 4 methods.
      */
     public static void printArray(int[] array){
-
+        for(int i = 0; i < array.length; i++ ){
+            System.out.println(array[i]);
+        }
     }
 
 
     public static int getSmallestNumber(int[] array){
+        int h = array[0];
+        for(int i = 0; i < array.length; i ++ ){
+            if(array[i] < h){h = array[i];}
+        }
 
-
-        return -1;
+        return h;
     }
 
 
     public static int getLargestNumber(int[] array){
-
-        return -1;
+        int h = array[0];
+        for(int i = 0; i < array.length; i ++ ){
+            if(array[i] > h){h = array[i];}
+        }
+        return h;
     }
 
 
     public static double getAverageValue(int[] array){
+        double sum = 0;
+        for(int i = 0; i < array.length; i ++){
+            sum = sum + array[i];
+        }
 
-        return -1.0;
+
+
+        return (sum / array.length);
     }
 
 

@@ -48,4 +48,13 @@ public class Motherboard {
     public void setGraphicsCard(GraphicsCard graphicsCard) {
         this.graphicsCard = graphicsCard;
     }
+
+    public int getTotalRamMemory(){
+        int totalRamMemory = 0;
+        Ram[] motherboardRam = getRamSticks();
+        for(int i = 0; i < motherboardRam.length; i ++ ){
+            totalRamMemory = totalRamMemory + motherboardRam[i].getSize();
+        }
+
+        return totalRamMemory;}
 }

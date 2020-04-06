@@ -22,8 +22,8 @@ public class ConditionPractice {
         System.out.println("The sum of all numbers divisible by 3 is " + addTogetherAllNumbersDivisibleBy3(numbers));
         System.out.println("The sum of all numbers divisible by 5 is " + addTogetherAllNumbersDivisibleBy5(numbers));
         printNumbers(numbers);
-
-
+        System.out.println(addTogetherAllnumbersDivisibleByVariable(numbers, 3));
+        System.out.println(addTogetherAllnumbersDivisibleByVariable(numbers, 5));
     }
 
     /*
@@ -51,12 +51,34 @@ public class ConditionPractice {
 
 
     public static int addTogetherAllNumbersDivisibleBy3(int[] array){
-
-        return -1;
+        int sum = 0;
+        for(int i = 0; i < array.length; i ++){
+            if(array[i] % 3 == 0){
+                sum = sum + array[i];
+            }
+        }
+        return sum;
     }
 
     public static int addTogetherAllNumbersDivisibleBy5(int[] array){
-        return -1;
+        int sum = 0;
+        for(int i = 0; i < array.length; i ++){
+            if(array[i] % 5 == 0){
+                sum = sum + array[i];
+            }
+        }
+        return sum;
+    }
+
+    public static int addTogetherAllnumbersDivisibleByVariable(int[] array, int variable){
+
+        int sum = 0;
+        for(int i = 0; i < array.length; i++){
+            if(array[i] % variable == 0){
+                sum = sum + array[i];
+            }
+        }
+        return sum;
     }
 
 
@@ -67,8 +89,16 @@ public class ConditionPractice {
         If a number is divisible by 3 print out "This number is divisible by 3"
         If a number is divisible by both 2 and 3, print out "This number is divisible by 2 and 3.
      */
-    public static void printNumbers(int[] array){
-
-    }
+    public static void printNumbers(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] % 2 == 0 && array[i] % 3 == 0) {
+                System.out.println(array[i] + " is divisible by 2 and 3");
+            }else if (array[i] % 2 == 0) {
+                    System.out.println(array[i] + " is divisible by 2");
+                } else if (array[i] % 3 == 0) {
+                    System.out.println(array[i] + " is divided by 3");
+                }
+            }
+        }
 
 }
