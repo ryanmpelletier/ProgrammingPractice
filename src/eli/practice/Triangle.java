@@ -1,41 +1,30 @@
 package eli.practice;
 
-public class Triangle {
-    private int height;
-    private Label label;
+public class Triangle extends AbstractShape implements Shape{
     public Triangle(int height, Label label){
-        this.height = height;
-        this.label = label;
+        super(height,label);
     }
-    public Label getLabel(){return this.label;}
-
-    public int getHeight(){return this.height;}
-
     public void printShape(){
-       for(int i = 0; i < height; i++){
-           if(i == label.getRowNumberOfLabel()-1){
-               printSpaces(height - i - 1);
+       for(int i = 0; i < getHeight(); i++){
+           if(i == getLabel().getRowNumberOfLabel()-1){
+               printSpaces(getHeight() - i - 1);
                printLabel(i);
-               if(label.getRowNumberOfLabel() % 2 != 0 && label.getLabel().length() % 2 == 0) {
+               if(getLabel().getRowNumberOfLabel() % 2 != 0 && getLabel().getLabel().length() % 2 == 0) {
                    System.out.print("X");
                }
-               if(label.getRowNumberOfLabel() % 2 == 0 && label.getLabel().length() % 2 != 0){
+               if(getLabel().getRowNumberOfLabel() % 2 == 0 && getLabel().getLabel().length() % 2 != 0){
                    System.out.print("X");
                }
                 System.out.println();
            }else{
-               printSpaces(height - i - 1);
+               printSpaces(getHeight() - i - 1);
                printXs(i + 1);
                System.out.println();
            }
        }
     }
-    public int checkLabelSpace(int rowNumberOfLabel){
-        int validity;
-        if(label.getLabel().length() > rowNumberOfLabel){
-            validity = 0;
-        }else{validity = 1;}
-        return validity;
+    public boolean isValid(){
+        return getLabel().getLabel().length() <= getLabel().getRowNumberOfLabel();
     }
 
     public void printSpaces(int length){
@@ -49,14 +38,14 @@ public class Triangle {
         }
     }
     public void printLabel(int index){
-       printXs((index+1-label.getLabel().length())/2);
+       printXs((index+1-getLabel().getLabel().length())/2);
        printLabel();
-       printXs((index+1-label.getLabel().length())/2);
+       printXs((index+1-getLabel().getLabel().length())/2);
 
     }
     public void printLabel(){
-        for(int i = 0; i < label.getLabel().length(); i++){
-            System.out.print(label.getLabel().charAt(i)+ " ");
+        for(int i = 0; i < getLabel().getLabel().length(); i++){
+            System.out.print(getLabel().getLabel().charAt(i) + " ");
         }
     }
 }
